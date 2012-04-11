@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CaseDefinition"
+    targetNamespace="http://tempuri.org/CaseDefinition.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/CaseDefinition.xsd"
+    xmlns:mstns="http://tempuri.org/CaseDefinition.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:attributeGroup name="dependOnGroup">
+    <xs:attribute name="dependOn" type="xs:NMTOKEN" use="optional"/>
+    <xs:attribute name="dependOnReverse" type="xs:boolean" use="optional" default="false"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="ConditionType" abstract="true">
+    <xs:attribute name="name" type="xs:NMTOKEN"/>
+    <xs:attribute name="sourceQuestion" type="xs:NMTOKEN">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the question from which the value for this condition is acquired. 
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="dependOnGroup"/>
+  </xs:complexType>
+
+  <xs:complexType name="BooleanConditionType">
+    <xs:annotation>
+      <xs:documentation>
+        Get the result directly from a boolean question. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ConditionType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="DecimalBoundType">
+    <xs:union memberTypes="xs:decimal">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unbounded"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+      <xs:simpleType name="IntegerBoundType">
+    <xs:union memberTypes="xs:integer">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unbounded"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:complexType name="RangeConditionType">
+    <xs:complexContent>
+      <xs:extension base="ConditionType">
+        <xs:attribute name="greaterThan" type="DecimalBoundType" use="optional" default="unbounded"/>
+        <xs:attribute name="greaterEqual" type="xs:boolean" default="false">
+          <xs:annotation>
+            <xs:documentation>
+              Whether the value can equal the "greaterThan" value.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lessThan" type="DecimalBoundType" use="optional" default="unbounded"/>
+        <xs:attribute name="lessEqual" type="xs:boolean" use="optional" default="false">
+          <xs:annotation>
+            <xs:documentation>
+              Whether the value can equal the "lessThan" value. 
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="EqualConditionType">
+    <xs:annotation>
+      <xs:documentation>
+        Whether the value is exactly equal to the target value. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ConditionType">
+        <xs:attribute name="targetValue" use="required" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ConditionListType">
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="BooleanCondition" type="BooleanConditionType"/>
+      <xs:element name="RangeCondition" type="RangeConditionType"/>
+      <xs:element name="EqualCondition" type="EqualConditionType"/>
+      <xs:element name="ConditionGroup" type="ConditionGroupType"/>
+      <xs:element name="ConditionRef">
+        <xs:complexType mixed="false">
+          <xs:attribute name="ref" type="xs:NMTOKEN"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  
+  <xs:complexType name="ConditionGroupType">
+    <xs:complexContent>
+      <xs:extension base="ConditionListType">
+        <xs:attribute name="name" use="optional" type="xs:NMTOKEN"></xs:attribute>
+        <xs:attribute name="logic" use="optional" default="And">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="And">
+                <xs:annotation>
+                  <xs:documentation>
+                    The condition group returns true only if each enclosing condition is true.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="Or">
+                <xs:annotation>
+                  <xs:documentation>
+                    The condition group returns true if there exists an enclosing condition that is true.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="Counting">
+                <xs:annotation>
+                  <xs:documentation>
+                    The condition group returns true if there are at least "Count" conditions that are true
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="count" type="xs:positiveInteger" use="optional" default="1">
+          <xs:annotation>
+            <xs:documentation>
+              When Logic is "Counting", the condition group returns true if there are at least "Count" conditions that are true. Otherwise, this field is ignored.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="reverse" type="xs:boolean" use="optional" default="false">
+          <xs:annotation>
+            <xs:documentation>
+              Whether a logical "NOT" should be applied to the final result. If this field is true, the final value of the condition group will be reversed.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attributeGroup ref="dependOnGroup"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="QuestionType" abstract="true">
+    <xs:sequence>
+      <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Detailed description of the question. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!--<xs:element name="Validation" type="ConditionGroupType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The condition for data validation. The input data is valid only if the condition is true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>-->
+    </xs:sequence>
+    
+    <xs:attribute name="name" type="xs:NMTOKEN" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Used as a reference to this question.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="title" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Title of the question.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="nullable" type="xs:boolean" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          If "nullable" is true, then the generated field will contain a checkbox "Null". 
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <!--TODO: Default-->
+
+    <xs:attributeGroup ref="dependOnGroup"/>
+    
+    <!--<xs:attribute name="dependOn" type="xs:NMTOKEN" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          The condition on which this question depends. The question is applicable only if the condition is true.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>-->
+    <!--TODO: Add an option: if the dependency is not true, the question should be hidden or grayed-->
+  </xs:complexType>
+
+  <xs:complexType name="BooleanQuestionType">
+    <xs:complexContent>
+      <xs:extension base="QuestionType">
+        <xs:attribute name="positiveLabel" type="xs:string" use="optional" default="Yes">
+          <xs:annotation>
+            <xs:documentation>
+              The label for positive value. "Yes" by default. 
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="negativeLabel" type="xs:string" use="optional" default="No">
+          <xs:annotation>
+            <xs:documentation>
+              The label for negative value. "No" by default. 
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="IntegerQuestionType">
+    <xs:complexContent>
+      <xs:extension base="QuestionType">
+        <xs:attribute name="minValue" type="IntegerBoundType" use="optional" default="unbounded"/>
+        <xs:attribute name="maxValue" type="IntegerBoundType" use="optional" default="unbounded"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FloatQuestionType">
+    <xs:complexContent>
+      <xs:extension base="QuestionType">
+        <xs:attribute name="minValue" type="DecimalBoundType" use="optional" default="unbounded"/>
+        <xs:attribute name="maxValue" type="DecimalBoundType" use="optional" default="unbounded"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SingleChoiceQuestionType">
+    <xs:complexContent>
+      <xs:extension base="QuestionType">
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+          <xs:element name="Option" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="QuestionGroupType">
+    <xs:complexContent>
+      <xs:extension base="QuestionType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="BooleanQuestion" type="BooleanQuestionType">
+            <xs:annotation>
+              <xs:documentation>
+                Question for a baoolean value. 
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="IntegerQuestion" type="IntegerQuestionType">
+            <xs:annotation>
+              <xs:documentation>
+                Question for an integer value. 
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="FloatQuestion" type="FloatQuestionType">
+            <xs:annotation>
+              <xs:documentation>
+                Question for a decimal value. 
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SingleChoiceQuestion" type="SingleChoiceQuestionType">
+            <xs:annotation>
+              <xs:documentation>
+                Question for choosing an item from multiple options. 
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="QuestionGroup" type="QuestionGroupType">
+            <xs:annotation>
+              <xs:documentation>
+                Create a nested question group. 
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Assertion" type="AssertionType">
+            <xs:annotation>
+              <xs:documentation>
+                Make assertion based on answered questions. 
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AssertionType">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="Option">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Condition" type="xs:NMTOKEN" minOccurs="1"/>
+            <xs:element name="Positive" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  The text to be displayed when the condition is true. If "Positive" is not defined, nothing will be displayed for positive condition.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Negative" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  The text to be displayed when the condition is false. If "Negative" is not defined, nothing will be displayed for negative condition.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:NMTOKEN" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of this assertion. Used for reference. 
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:element name="Form">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QuestionGroup" type="QuestionGroupType" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element name="Conditions" type="ConditionListType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Assertion" type="AssertionType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>
+              Make final assertion. 
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+</xs:schema>

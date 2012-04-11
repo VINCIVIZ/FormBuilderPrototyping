@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--Clarify with Wendy: send this XML to NLP? -->
+<!-- Danielle about XML standard -->
+<!-- Annotation Admin -->
+
+<Form xmlns="http://tempuri.org/CaseDefinition.xsd">
+  <QuestionGroup name="group1" title="Group 1">
+    <BooleanQuestion name="heart" positiveLabel="Present" negativeLabel="Absent" title="Heart Condition"></BooleanQuestion>
+    <BooleanQuestion name="lung" positiveLabel="Present" negativeLabel="Absent" title="Lung Condition"></BooleanQuestion>
+  </QuestionGroup>
+
+
+  <QuestionGroup name="group2" title="Group 2">
+    <IntegerQuestion name="chestX" title="Serial chest X-ray"/>
+    <BooleanQuestion name="infiltrate" title="Infiltrate" positiveLabel="Present" negativeLabel="Absent"/>
+    <BooleanQuestion name="consolidation" title="Consolidation" positiveLabel="Present" negativeLabel="Absent"/>
+    <BooleanQuestion name="cavitation" title="Cavitation" positiveLabel="Present" negativeLabel="Absent"/>
+  </QuestionGroup>
+
+  <QuestionGroup name="group3" title="Group 3" dependOn="depend1">
+    <BooleanQuestion name="immuno" title="(Some title)">
+      <Description>
+        Is patient immunocompromised? 
+      </Description>
+    </BooleanQuestion>
+  </QuestionGroup>
+
+  <QuestionGroup name="group4" title="Group 4" dependOn="depend1">
+    <FloatQuestion name="fever" title="Fever" nullable="true"/>
+    <BooleanQuestion name="mental" title="Altered mental status" positiveLabel="Present" negativeLabel="Absent"/>
+    <IntegerQuestion name="age" title="Patient Age" minValue="0" maxValue="150"/>
+
+    <FloatQuestion name="leukopenia" title="Leukopenia" nullable="true" dependOn="cond4" dependOnReverse="true"/>
+    <FloatQuestion name="leukocytosis" title="Leukocytosis" nullable="true" dependOn="cond4" dependOnReverse="true"/>
+
+    <SingleChoiceQuestion name="sputum" title="Sputum" nullable="true" dependOn="cond4">
+      <Option>Unmarked</Option>
+      <Option>Changed</Option>
+      <Option>Increased</Option>
+      <Option>Decreased</Option>
+      <Option>Improved</Option>
+      <Option>Worsened</Option>
+      <Option>Resolved</Option>
+      <!--TODO: maybe a new type? -->
+    </SingleChoiceQuestion>
+  </QuestionGroup>
+  
+  <Conditions>
+    <ConditionGroup name="cond1" logic="Or">
+      <BooleanCondition sourceQuestion="heart"/>
+      <BooleanCondition sourceQuestion="lung"/>
+    </ConditionGroup>
+
+    <ConditionGroup name="sub1" logic="Or">
+      <BooleanCondition sourceQuestion="infiltrate"/>
+      <BooleanCondition sourceQuestion="consolidation"/>
+      <BooleanCondition sourceQuestion="cavitation"/>
+    </ConditionGroup>
+
+    <ConditionGroup name="cond2" logic="And" dependOn="cond1">
+      <RangeCondition sourceQuestion="chestX" greaterThan="2" greaterEqual="true"/>
+      <ConditionRef ref="sub1"/>
+    </ConditionGroup>
+
+    <ConditionGroup name="cond3" logic="And" dependOn="cond1" dependOnReverse="true">
+      <RangeCondition sourceQuestion="chestX" greaterThan="1" greaterEqual="true"/>
+      <ConditionRef ref="sub1"/>
+    </ConditionGroup>
+
+    <ConditionGroup name="depend1" logic="Or">
+      <ConditionRef ref="cond2"/>
+      <ConditionRef ref="cond3"/>
+    </ConditionGroup>
+
+    <BooleanCondition name="cond4" sourceQuestion="immuno"/>
+    <ConditionGroup name="notCond4" reverse="true">
+      <ConditionRef ref="cond4"/>
+    </ConditionGroup>
+
+    <ConditionGroup name="cond5" logic="Counting" count="1">
+      <RangeCondition sourceQuestion="fever" greaterThan="38"/>
+      <BooleanCondition sourceQuestion="ieukopenia"/>
+      <BooleanCondition name="leukocytosis"/>
+      <RangeCondition name="age" greaterThan="70" greaterEqual="true"/>
+    </ConditionGroup>
+    
+  </Conditions>
+  
+</Form>
