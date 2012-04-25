@@ -1,0 +1,34 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Prototype1Screens.Screen_1"
+	Width="1280" Height="600">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Path Data="M206.62474,4.4723969" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="206.625,4.472,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1"/>
+		<Path Data="M269.23828,2.6834381 L279.07785,592.14581" Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="268.738,2.183,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" Width="1"/>
+		<TextBlock HorizontalAlignment="Left" Height="26" Margin="8,4,0,0" Style="{StaticResource SubtitleCenter-Sketch}" TextWrapping="Wrap" Text="Common Types" VerticalAlignment="Top" Width="257"/>
+		<ListBox HorizontalAlignment="Left" Height="219" Margin="0,72,0,0" Style="{StaticResource ListBox-Sketch}" VerticalAlignment="Top" Width="265">
+			<ListBoxItem Content="" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Content="Age" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Content="ListBoxItem" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Content="ListBoxItem" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Content="ListBoxItem" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Content="ListBoxItem" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Margin="0" Style="{StaticResource ListBoxItem-Sketch}">
+				<ListBoxItem Content="ListBoxItem" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			</ListBoxItem>
+			<ListBoxItem Content="ListBoxItem" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Content="ListBoxItem" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+		</ListBox>
+		<TextBox HorizontalAlignment="Left" Height="30" Margin="0,38,0,0" Style="{StaticResource TextBox-Sketch}" TextWrapping="Wrap" Text="Search Type&#xd;&#xa;Search box" VerticalAlignment="Top" Width="225"/>
+		<ComboBox HorizontalAlignment="Left" Margin="225,39,0,0" Style="{StaticResource ComboBox-Sketch}" VerticalAlignment="Top" Width="40">
+			<ComboBoxItem Content="Frequency" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			<ComboBoxItem Content="Alphabetic" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			<ComboBoxItem Content="Category" Style="{StaticResource ComboBoxItem-Sketch}"/>
+		</ComboBox>
+	</Grid>
+</UserControl>

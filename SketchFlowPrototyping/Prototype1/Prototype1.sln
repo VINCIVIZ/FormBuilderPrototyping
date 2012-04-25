@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype1", "Prototype1\Prototype1.csproj", "{62c53fb1-d311-4187-98d6-f8306a67b5da}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype1Screens", "Prototype1\Prototype1Screens\Prototype1Screens.csproj", "{ae27b10d-bdb0-4ba6-ab8c-2e2815f2cb3f}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62C53FB1-D311-4187-98D6-F8306A67B5DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C53FB1-D311-4187-98D6-F8306A67B5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C53FB1-D311-4187-98D6-F8306A67B5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C53FB1-D311-4187-98D6-F8306A67B5DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE27B10D-BDB0-4BA6-AB8C-2E2815F2CB3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE27B10D-BDB0-4BA6-AB8C-2E2815F2CB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE27B10D-BDB0-4BA6-AB8C-2E2815F2CB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE27B10D-BDB0-4BA6-AB8C-2E2815F2CB3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
