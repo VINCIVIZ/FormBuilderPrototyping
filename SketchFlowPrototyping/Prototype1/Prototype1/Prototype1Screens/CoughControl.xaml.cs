@@ -10,16 +10,12 @@ using System.Windows.Shapes;
 
 namespace Prototype1Screens
 {
-	public partial class Screen_1 : UserControl
+	public partial class CoughControl : UserControl
 	{
-		public Screen_1()
+		public CoughControl()
 		{
 			// Required to initialize variables
 			InitializeComponent();
-		}
-
-		private void ListBoxItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-		{
 		}
 	}
 }

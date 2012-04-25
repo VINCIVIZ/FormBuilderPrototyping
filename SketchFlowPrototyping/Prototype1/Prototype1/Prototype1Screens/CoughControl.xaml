@@ -1,0 +1,26 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Prototype1Screens.CoughControl"
+	d:DesignWidth="149" d:DesignHeight="89">
+
+	<Grid x:Name="LayoutRoot">
+		<Canvas>
+			<TextBlock HorizontalAlignment="Stretch" Style="{StaticResource SubtitleCenter-Sketch}" TextWrapping="Wrap" Text="Cough"/>
+			<CheckBox Content="Presence" Style="{StaticResource CheckBox-Sketch}" Height="24" Width="96" Canvas.Left="29" Canvas.Top="36"/>
+			<ComboBox Style="{StaticResource ComboBox-Sketch}" Width="120" Canvas.Left="29" Canvas.Top="60">
+				<ComboBoxItem Content="Course" Style="{StaticResource ComboBoxItem-Sketch}" IsSelected="True"/>
+				<ComboBoxItem Content="Unmarked" Style="{StaticResource ComboBoxItem-Sketch}"/>
+				<ComboBoxItem Content="Changed" Style="{StaticResource ComboBoxItem-Sketch}"/>
+				<ComboBoxItem Content="Increased" Style="{StaticResource ComboBoxItem-Sketch}"/>
+				<ComboBoxItem Content="Decreased" Style="{StaticResource ComboBoxItem-Sketch}"/>
+				<ComboBoxItem Content="Improved" Style="{StaticResource ComboBoxItem-Sketch}"/>
+				<ComboBoxItem Content="Worsened" Style="{StaticResource ComboBoxItem-Sketch}"/>
+				<ComboBoxItem Content="Resolved" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			</ComboBox>
+		</Canvas>
+	</Grid>
+</UserControl>
