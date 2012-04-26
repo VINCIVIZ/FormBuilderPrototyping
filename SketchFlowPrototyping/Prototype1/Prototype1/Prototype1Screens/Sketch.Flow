@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SchemaVersion="2">
   <SketchFlowGuid>bec67154-e23b-481b-8f11-2f9c61c6ee19</SketchFlowGuid>
-  <StartScreen>Prototype1Screens.Screen_1</StartScreen>
+  <StartScreen>Prototype1Screens.Workflow</StartScreen>
   <Screens>
     <Screen>
       <Type>Navigation</Type>
       <ClassName>Prototype1Screens.Screen_1</ClassName>
-      <DisplayName>Main</DisplayName>
+      <DisplayName>FormBuilder</DisplayName>
       <FileName>Screen_1.xaml</FileName>
       <Annotations />
       <Position>
@@ -15,8 +15,28 @@
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>Prototype1Screens.Workflow</ClassName>
+      <DisplayName>Workflow</DisplayName>
+      <FileName>Workflow.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>-154</X>
+        <Y>2</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
   </Screens>
-  <Connections />
+  <Connections>
+    <Connection>
+      <Source>Prototype1Screens.Workflow</Source>
+      <Target>Prototype1Screens.Screen_1</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+  </Connections>
   <PrototypeRevision>0</PrototypeRevision>
   <BrandingText>Microsoft SketchFlow Prototype</BrandingText>
   <RuntimeOptions>
@@ -63,8 +83,8 @@
   <ViewState>
     <Zoom>1</Zoom>
     <Center>
-      <X>47.5</X>
-      <Y>10</Y>
+      <X>95.5</X>
+      <Y>45</Y>
     </Center>
   </ViewState>
 </Data>

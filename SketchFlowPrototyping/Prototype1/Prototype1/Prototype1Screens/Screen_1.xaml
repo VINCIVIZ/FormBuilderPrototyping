@@ -1,4 +1,5 @@
 ﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity" xmlns:local="clr-namespace:Prototype1Screens"
+	xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls"
 	x:Class="Prototype1Screens.Screen_1"
 	Width="1280" Height="600" mc:Ignorable="d">
 
@@ -40,6 +41,36 @@
 						<DoubleAnimation Duration="0" To="2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="textBlock" d:IsOptimized="True"/>
 						<DoubleAnimation Duration="0" To="-180" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="listBox" d:IsOptimized="True"/>
 						<DoubleAnimation Duration="0" To="2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="listBox" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="0.811" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="-93" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
+			<VisualStateGroup x:Name="FormFields">
+				<VisualState x:Name="FormFields_Default"/>
+				<VisualState x:Name="FormFields_Group">
+					<Storyboard>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
+					</Storyboard>
+				</VisualState>
+				<VisualState x:Name="FormFields_Age">
+					<Storyboard>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ageControl1" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="100" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
+					</Storyboard>
+				</VisualState>
+				<VisualState x:Name="FormFields_Cough">
+					<Storyboard>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ageControl1" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="coughControl1" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="220" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="sketchRectangleSL" d:IsOptimized="True"/>
 					</Storyboard>
 				</VisualState>
 			</VisualStateGroup>
@@ -74,12 +105,11 @@
 				</i:Interaction.Triggers>
 			</ListBoxItem>
 			<ListBoxItem Content="Fever" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
-			<ListBoxItem Content="..." Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
-			<ListBoxItem Margin="0" Style="{StaticResource ListBoxItem-Sketch}">
-				<ListBoxItem Content="..." Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
-			</ListBoxItem>
+			<ListBoxItem Content="Group" Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
 			<ListBoxItem Content="..." Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
 			<ListBoxItem Content="..." Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
+			<ListBoxItem Content="..." Margin="0" Style="{StaticResource ListBoxItem-Sketch}" Width="212"/>
 		</ListBox>
 		<TextBox HorizontalAlignment="Left" Height="30" Margin="0,38,0,0" Style="{StaticResource TextBox-Sketch}" TextWrapping="Wrap" Text="Search box" VerticalAlignment="Top" Width="225"/>
 		<ComboBox HorizontalAlignment="Left" Margin="225,39,0,0" Style="{StaticResource ComboBox-Sketch}" VerticalAlignment="Top" Width="40">
@@ -87,11 +117,29 @@
 			<ComboBoxItem Content="Alphabetic" Style="{StaticResource ComboBoxItem-Sketch}"/>
 			<ComboBoxItem Content="Type" Style="{StaticResource ComboBoxItem-Sketch}"/>
 		</ComboBox>
-		<Path Data="M11,78.25 C10.375,80.791664 8.8343773,83.273804 9.125,85.875 C9.1767254,86.337967 9.5012407,86.731133 9.75,87.125 C10.003686,87.526672 10.310596,87.893845 10.625,88.25 C10.975974,88.647575 11.364443,89.010864 11.75,89.375 C12.114766,89.719505 12.459531,90.093712 12.875,90.375 C13.260753,90.636169 13.685306,90.846107 14.125,91 C14.526063,91.140373 14.954255,91.19059 15.375,91.25 C15.871805,91.320145 16.374245,91.406296 16.875,91.375 C19.834524,91.190033 21.014328,90.831551 23.5,89 C25.749712,87.342316 26.969982,86.997314 26.625,83.375 C26.403988,81.054367 26.421318,80.033455 24.125,78.375 C22.443424,77.16053 21.470608,76.461487 19.25,76.25 C15.219504,75.866142 13.341068,75.488396 10.5,79.75" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="16.351" Margin="9.089,76.031,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="18.594"/>
+		<Path Data="M11,78.25 C10.375,80.791664 8.8343773,83.273804 9.125,85.875 C9.1767254,86.337967 9.5012407,86.731133 9.75,87.125 C10.003686,87.526672 10.310596,87.893845 10.625,88.25 C10.975974,88.647575 11.364443,89.010864 11.75,89.375 C12.114766,89.719505 12.459531,90.093712 12.875,90.375 C13.260753,90.636169 13.685306,90.846107 14.125,91 C14.526063,91.140373 14.954255,91.19059 15.375,91.25 C15.871805,91.320145 16.374245,91.406296 16.875,91.375 C19.834524,91.190033 21.014328,90.831551 23.5,89 C25.749712,87.342316 26.969982,86.997314 26.625,83.375 C26.403988,81.054367 26.421318,80.033455 24.125,78.375 C22.443424,77.16053 21.470608,76.461487 19.25,76.25 C15.219504,75.866142 13.341068,75.488396 10.5,79.75" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="16.351" Margin="9.089,76.031,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="18.594">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonUp">
+					<pi:ActivateStateAction TargetState="FormFields_Age"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</Path>
 		<Path Data="M13,105 C12.708333,107.375 12.419231,109.75031 12.125,112.125 C12.083694,112.45838 12.047507,112.79245 12,113.125 C11.964157,113.3759 11.895905,113.62241 11.875,113.875 C11.868127,113.95805 11.848648,114.04594 11.875,114.125 C12.066648,114.69994 13.068848,114.25936 13.875,114.125 C16.026875,113.76636 21.147659,111.64766 23.125,113.625 C23.125,110.7692 26.041132,106.95727 24.625,104.125 C23.277216,101.42944 16.467228,103.66845 13.125,103" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="12.656" Margin="11.862,102.757,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="14.151"/>
-		<Path Data="M13.75,125.875 C13.458333,128.20833 13.021115,130.52805 12.875,132.875 C12.867233,132.99976 12.850486,133.12743 12.875,133.25 C12.893272,133.34135 12.934119,133.43411 13,133.5 C13.065881,133.56589 13.170108,133.57707 13.25,133.625 C14.314954,134.26398 15.250463,133.90273 16.625,133.75 C17.567886,133.64523 24.992874,131.33937 25.375,133.25 C24.940693,131.51277 27.271523,126.42384 24.875,125.625 C22.334518,124.77818 19.319061,125.71481 16.625,125.625 C14.723002,125.5616 13.369486,125.2935 11.625,125.875" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="9.723" Margin="11.625,125.268,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="15.35"/>
+		<Path Data="M13.75,125.875 C13.458333,128.20833 13.021115,130.52805 12.875,132.875 C12.867233,132.99976 12.850486,133.12743 12.875,133.25 C12.893272,133.34135 12.934119,133.43411 13,133.5 C13.065881,133.56589 13.170108,133.57707 13.25,133.625 C14.314954,134.26398 15.250463,133.90273 16.625,133.75 C17.567886,133.64523 24.992874,131.33937 25.375,133.25 C24.940693,131.51277 27.271523,126.42384 24.875,125.625 C22.334518,124.77818 19.319061,125.71481 16.625,125.625 C14.723002,125.5616 13.369486,125.2935 11.625,125.875" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="9.723" Margin="11.625,125.268,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="15.35">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonUp">
+					<pi:ActivateStateAction TargetState="FormFields_Cough"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</Path>
 		<Path Data="M16,151.75 C16.541666,154.20833 15.940743,157.25415 17.625,159.125 C18.242105,159.81047 19.346617,159.81401 20.25,160 C22.463058,160.45563 22.828798,159.95616 24.875,158.375 C27.235401,156.55106 29.481777,155.66173 27.5,151.5 C25.916368,148.17438 26.366247,147.11992 20.75,148.875 C18.971439,149.4308 17.373903,150.03214 15.875,151.25 C14.485531,152.37894 15.298884,152.10352 15.125,153.625" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="13.125" Margin="15.044,148.036,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="14.218"/>
-		<Path Data="M20.5,175.5 C17.613752,179.54074 14.227666,183.54466 12,188 C16.013586,188 22.66264,185.16264 26,188.5 C22.856201,184.57025 22.18861,180.05925 20.5,175.5 z" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="14" Margin="12,175.5,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="15"/>
+		<Path Data="M20.5,175.5 C17.613752,179.54074 14.227666,183.54466 12,188 C16.013586,188 22.66264,185.16264 26,188.5 C22.856201,184.57025 22.18861,180.05925 20.5,175.5 z" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="14" Margin="12,175.5,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="15">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonUp">
+					<pi:ActivateStateAction TargetState="FormFields_Group"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</Path>
 		<Path Data="M19,249.5 C16.166666,252.16667 13.333333,254.83333 10.5,257.5 C13.413845,260.41385 21.130333,257 26,257 C23.552153,254.55215 21.348824,252.00037 19,249.5 z" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10.177" Margin="10.5,249.5,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="16.5"/>
 		<Path Data="M19,202 C10.16682,212.59982 14.612631,208.54053 10,212 C14.220113,214.11006 22.292618,210.14632 28,213 C23.448732,210.26924 21.773851,208.2372 19.5,203.5" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="12" Margin="10,202,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="19"/>
 		<Path Data="M17,225.5 C13.833333,229.33333 9.1826077,232.32121 7.5,237 C7.387198,237.31366 7.5,237.66667 7.5,238 C11.982589,238 17.320723,235.66847 22,235 C20.777119,232.55424 17.244518,229.56339 16.5,227.5" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="13.5" Margin="7.45,225.5,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="15.55"/>
@@ -160,5 +208,14 @@
 			<ListBoxItem Content="..." Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
 			<TextBox Height="180" Margin="8,0,13,0" Style="{StaticResource Note-Sketch}" TextWrapping="Wrap" Text="I don't know whether we should provide custom fields. How will NLP recognize it ?" Width="153"/>
 		</ListBox>
+		<TextBlock HorizontalAlignment="Right" Margin="0,25,453,0" Style="{StaticResource TitleCenter-Sketch}" TextWrapping="Wrap" Text="Form Title" VerticalAlignment="Top"/>
+		<pc:SketchRectangleSL x:Name="sketchRectangleSL" Margin="280,76,18,0" Style="{StaticResource Rectangle-Sketch}" Height="85" VerticalAlignment="Top" Opacity="0" RenderTransformOrigin="0.5,0.5">
+			<pc:SketchRectangleSL.RenderTransform>
+				<CompositeTransform/>
+			</pc:SketchRectangleSL.RenderTransform>
+		</pc:SketchRectangleSL>
+		<TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="288,81,0,0" Style="{StaticResource TextBox-Sketch}" TextWrapping="Wrap" Text="Group Title" VerticalAlignment="Top" Height="40" Width="125" FontSize="24" Opacity="0"/>
+		<local:AgeControl x:Name="ageControl1" HorizontalAlignment="Left" Margin="313,139,0,0" Width="100" Height="100" VerticalAlignment="Top" Opacity="0"/>
+		<local:CoughControl x:Name="coughControl1" HorizontalAlignment="Left" Margin="313,191,0,0" Width="100" Height="100" VerticalAlignment="Top" Opacity="0"/>
 	</Grid>
 </UserControl>

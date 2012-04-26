@@ -73,6 +73,9 @@
     <Compile Include="Screen_1.xaml.cs">
       <DependentUpon>Screen_1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Workflow.xaml.cs">
+      <DependentUpon>Workflow.xaml</DependentUpon>
+    </Compile>
     <Page Include="AgeControl.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -93,9 +96,14 @@
     <Compile Include="..\Properties\Version.cs">
       <Link>Properties\Version.cs</Link>
     </Compile>
+    <Page Include="Workflow.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Resource Include="Fonts\BuxtonSketch.ttf" />
     <Resource Include="Fonts\SketchFlow Print.ttf" />
     <Resource Include="Fonts\SegoeMarker.ttf" />
+    <Resource Include="Screen_Shot_2012-04-24_at_下午8.08.05.png" />
     <Resource Include="Sketch.Flow" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
