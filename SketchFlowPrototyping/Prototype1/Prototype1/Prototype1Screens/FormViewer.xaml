@@ -10,8 +10,8 @@
 
 	<Grid x:Name="LayoutRoot" Background="White">
 		<VisualStateManager.VisualStateGroups>
-			<VisualStateGroup x:Name="Viwer_Result">
-				<VisualState x:Name="VisualState">
+			<VisualStateGroup x:Name="Viewer_Result">
+				<VisualState x:Name="Age">
 					<Storyboard>
 						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="richTextBox" d:IsOptimized="True"/>
 						<DoubleAnimation Duration="0" To="18.667" Storyboard.TargetProperty="(Control.FontSize)" Storyboard.TargetName="richTextBox" d:IsOptimized="True"/>
