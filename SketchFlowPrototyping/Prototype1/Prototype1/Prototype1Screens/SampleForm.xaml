@@ -1,0 +1,44 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity" xmlns:local="clr-namespace:Prototype1Screens"
+	mc:Ignorable="d"
+	x:Class="Prototype1Screens.SampleForm"
+	d:DesignWidth="299" d:DesignHeight="373" Height="373" Width="299">
+
+	<Grid x:Name="LayoutRoot">
+		<TextBlock HorizontalAlignment="Stretch" Height="57" Margin="16,0,0,0" Style="{StaticResource TitleCenter-Sketch}" TextWrapping="Wrap" Text="Form Title" VerticalAlignment="Top"/>
+		<TextBlock HorizontalAlignment="Left" Margin="0,45,0,0" Style="{StaticResource SubtitleLeft-Sketch}" TextWrapping="Wrap" Text="Group 1" VerticalAlignment="Top" RenderTransformOrigin="0.54,6.917" Height="28" Width="63">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonDown">
+					<pi:PlaySketchFlowAnimationAction SketchFlowAnimation="_SketchFlowAnimation_Group1Drag"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</TextBlock>
+		<local:CoughControl x:Name="coughControl1" HorizontalAlignment="Left" Margin="25,113,0,160" Width="100"/>
+		<local:AgeControl x:Name="ageControl1" Margin="25,84,0,0" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+		<TextBlock HorizontalAlignment="Left" Margin="0,232,0,0" Style="{StaticResource SubtitleLeft-Sketch}" TextWrapping="Wrap" Text="Group 2" RenderTransformOrigin="0.54,6.917" Width="78" Height="28" VerticalAlignment="Top">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonDown">
+					<pi:PlaySketchFlowAnimationAction SketchFlowAnimation="_SketchFlowAnimation_Group2Drag"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</TextBlock>
+		<TextBlock HorizontalAlignment="Left" Margin="25,264,0,0" Style="{StaticResource TextBlock-Sketch}" TextWrapping="Wrap" Text="Fever" Width="30" Height="20" VerticalAlignment="Top"/>
+		<TextBox Margin="65,264,0,0" Style="{StaticResource TextBox-Sketch}" TextWrapping="Wrap" HorizontalAlignment="Left" Width="80" Height="20" VerticalAlignment="Top"/>
+		<CheckBox Content="Presence" Style="{StaticResource CheckBox-Sketch}" Height="24" Margin="48,320,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="96"/>
+		<ComboBox Style="{StaticResource ComboBox-Sketch}" Margin="48,344,0,0" HorizontalAlignment="Left" Width="134">
+			<ComboBoxItem Content="Course" Style="{StaticResource ComboBoxItem-Sketch}" IsSelected="True"/>
+			<ComboBoxItem Content="Unmarked" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			<ComboBoxItem Content="Changed" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			<ComboBoxItem Content="Increased" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			<ComboBoxItem Content="Decreased" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			<ComboBoxItem Content="Improved" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			<ComboBoxItem Content="Worsened" Style="{StaticResource ComboBoxItem-Sketch}"/>
+			<ComboBoxItem Content="Resolved" Style="{StaticResource ComboBoxItem-Sketch}"/>
+		</ComboBox>
+		<TextBlock HorizontalAlignment="Left" Margin="25,289,0,0" Style="{StaticResource SubtitleLeft-Sketch}" TextWrapping="Wrap" Text="Dyspnea" VerticalAlignment="Top" Height="28" Width="71"/>
+	</Grid>
+</UserControl>

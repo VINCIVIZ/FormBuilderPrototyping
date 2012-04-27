@@ -6,12 +6,11 @@
 	xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
 	mc:Ignorable="d"
 	x:Class="Prototype1Screens.Workflow"
-	Width="640" Height="480">
+	Width="1280" Height="600">
 
 	<Grid x:Name="LayoutRoot" Background="White">
-		<Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-		<Image Margin="-179,71,-276,26" Source="Screen_Shot_2012-04-24_at_下午8.08.05.png"/>
-		<pc:SketchRectangleSL Height="32" Margin="238,0,316,197" Style="{StaticResource Rectangle-Sketch}" VerticalAlignment="Bottom" Background="Transparent">
+		<Image Margin="0" Source="Capture.PNG"/>
+		<pc:SketchRectangleSL Margin="490,286,0,265" Style="{StaticResource Rectangle-Sketch}" Background="Transparent" HorizontalAlignment="Left" Width="139">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseLeftButtonDown">
 					<pi:NavigateToScreenAction TargetScreen="Prototype1Screens.Screen_1"/>

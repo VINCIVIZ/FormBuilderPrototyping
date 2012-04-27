@@ -70,8 +70,17 @@
     <Compile Include="CoughControl.xaml.cs">
       <DependentUpon>CoughControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormViewer.xaml.cs">
+      <DependentUpon>FormViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleForm.xaml.cs">
+      <DependentUpon>SampleForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screen_1.xaml.cs">
       <DependentUpon>Screen_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screen_1_1.xaml.cs">
+      <DependentUpon>Screen_1_1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Workflow.xaml.cs">
       <DependentUpon>Workflow.xaml</DependentUpon>
@@ -84,7 +93,19 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="FormViewer.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screen_1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screen_1_1.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -100,6 +121,7 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Resource Include="Capture.PNG" />
     <Resource Include="Fonts\BuxtonSketch.ttf" />
     <Resource Include="Fonts\SketchFlow Print.ttf" />
     <Resource Include="Fonts\SegoeMarker.ttf" />

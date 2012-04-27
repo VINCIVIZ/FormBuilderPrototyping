@@ -27,11 +27,68 @@
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>Prototype1Screens.Screen_1_1</ClassName>
+      <DisplayName>DiagramEditor</DisplayName>
+      <FileName>Screen_1_1.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>-1</X>
+        <Y>54</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Composition</Type>
+      <ClassName>Prototype1Screens.SampleForm</ClassName>
+      <DisplayName>SampleForm</DisplayName>
+      <FileName>SampleForm.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>112</X>
+        <Y>72</Y>
+      </Position>
+      <VisualTag>1</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>Prototype1Screens.FormViewer</ClassName>
+      <DisplayName>FormViewer</DisplayName>
+      <FileName>FormViewer.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>3</X>
+        <Y>106</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
   </Screens>
   <Connections>
     <Connection>
       <Source>Prototype1Screens.Workflow</Source>
       <Target>Prototype1Screens.Screen_1</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>Prototype1Screens.Screen_1</Source>
+      <Target>Prototype1Screens.Screen_1_1</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>Prototype1Screens.Screen_1_1</Source>
+      <Target>Prototype1Screens.Screen_1</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>Prototype1Screens.Workflow</Source>
+      <Target>Prototype1Screens.FormViewer</Target>
       <Type>Navigation</Type>
       <TransitionType>Fade</TransitionType>
       <VisualTag>0</VisualTag>
@@ -81,10 +138,10 @@
     </VisualTag>
   </VisualTags>
   <ViewState>
-    <Zoom>1</Zoom>
+    <Zoom>1.375</Zoom>
     <Center>
-      <X>95.5</X>
-      <Y>45</Y>
+      <X>102.04536271808999</X>
+      <Y>58.781499202551842</Y>
     </Center>
   </ViewState>
 </Data>

@@ -208,7 +208,7 @@
 			<ListBoxItem Content="..." Margin="0" Style="{StaticResource ListBoxItem-Sketch}"/>
 			<TextBox Height="180" Margin="8,0,13,0" Style="{StaticResource Note-Sketch}" TextWrapping="Wrap" Text="I don't know whether we should provide custom fields. How will NLP recognize it ?" Width="153"/>
 		</ListBox>
-		<TextBlock HorizontalAlignment="Right" Margin="0,25,453,0" Style="{StaticResource TitleCenter-Sketch}" TextWrapping="Wrap" Text="Form Title" VerticalAlignment="Top"/>
+		<TextBlock x:Name="textBlock1" HorizontalAlignment="Right" Margin="0,25,453,0" Style="{StaticResource TitleCenter-Sketch}" TextWrapping="Wrap" Text="Form Title" VerticalAlignment="Top"/>
 		<pc:SketchRectangleSL x:Name="sketchRectangleSL" Margin="280,76,18,0" Style="{StaticResource Rectangle-Sketch}" Height="85" VerticalAlignment="Top" Opacity="0" RenderTransformOrigin="0.5,0.5">
 			<pc:SketchRectangleSL.RenderTransform>
 				<CompositeTransform/>
