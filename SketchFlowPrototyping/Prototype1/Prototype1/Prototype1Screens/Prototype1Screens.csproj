@@ -70,6 +70,9 @@
     <Compile Include="CoughControl.xaml.cs">
       <DependentUpon>CoughControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormBuilder_ver_2.xaml.cs">
+      <DependentUpon>FormBuilder_ver_2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormViewer.xaml.cs">
       <DependentUpon>FormViewer.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CoughControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FormBuilder_ver_2.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>

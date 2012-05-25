@@ -63,6 +63,18 @@
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>Prototype1Screens.FormBuilder_ver_2</ClassName>
+      <DisplayName>FormBuilder ver.2</DisplayName>
+      <FileName>FormBuilder_ver_2.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>123</X>
+        <Y>0</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
   </Screens>
   <Connections>
     <Connection>
@@ -89,6 +101,20 @@
     <Connection>
       <Source>Prototype1Screens.Workflow</Source>
       <Target>Prototype1Screens.FormViewer</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>Prototype1Screens.Screen_1</Source>
+      <Target>Prototype1Screens.FormBuilder_ver_2</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>Prototype1Screens.FormBuilder_ver_2</Source>
+      <Target>Prototype1Screens.Screen_1</Target>
       <Type>Navigation</Type>
       <TransitionType>Fade</TransitionType>
       <VisualTag>0</VisualTag>
@@ -140,8 +166,8 @@
   <ViewState>
     <Zoom>1.375</Zoom>
     <Center>
-      <X>102.04536271808999</X>
-      <Y>58.781499202551842</Y>
+      <X>49.24221311179079</X>
+      <Y>14.354066985645936</Y>
     </Center>
   </ViewState>
 </Data>
